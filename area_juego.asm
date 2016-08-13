@@ -24,6 +24,25 @@ SECTION	.data
 	
 	B3med db 27,"[04;32H"	
 	fin_pantalla db 27,"[29;00H"
+	
+	;Dejar espacio para ubicaciones de bloques 4-6
+	
+	;Termina espacio
+	
+	B7 db 27,"[09;02H"
+	B_7 db 27,"[11;02H"
+
+	B7med db 27,"[10;02H"
+	
+	B8 db 27,"[09;17H"
+	B_8 db 27,"[11;17H"
+
+	B8med db 27,"[10;17H"
+	
+	B9 db 27,"[09;32H"
+	B_9 db 27,"[11;32H"
+
+	B9med db 27,"[10;32H"
 		
 	;db variable
 	escLen equ 8
@@ -60,10 +79,12 @@ _start:
 	call Bloque1
 	call Bloque2
 	call Bloque3
-	;call ubicar
-	;call lin
-	;call ubicar2
-	;call lin
+	;call Bloque4
+	;call Bloque5
+	;call Bloque6
+	call Bloque7
+	call Bloque8
+	call Bloque9
 	;call DelB1
 	call ubicarfinal
 	call segunda
@@ -142,6 +163,36 @@ Bloque3:
 	call ubicar3b3
 	call lin
 	ret
+
+; Dejar espacio para bloques 4-7
+
+; Terminar espacio
+
+Bloque7:
+	call ubicarb7
+	call lin
+	call ubicarmedio7
+	call Medio
+	call ubicar7b7
+	call lin
+	ret
+	
+Bloque8:
+	call ubicarb8
+	call lin
+	call ubicarmedio8
+	call Medio
+	call ubicar8b8
+	call lin
+	ret
+Bloque9:
+	call ubicarb9
+	call lin
+	call ubicarmedio9
+	call Medio
+	call ubicar9b9
+	call lin
+	ret
 		
 ubicar:	
     	
@@ -211,6 +262,80 @@ ubicarmedio3:
 	mov rdx,escLen
 	int 80h
 	ret	
+;Dejar espacio para ubicar blques del 4-7
+
+
+;Terminar
+
+ubicarb7:	 	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B7
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicar7b7:	 	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B_7
+	mov rdx,escLen
+	int 80h
+	ret	
+ubicarmedio7:
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B7med
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicarb8:	 	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B8
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicar8b8:	 	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B_8
+	mov rdx,escLen
+	int 80h
+	ret	
+ubicarmedio8:
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B8med
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicarb9:	 	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B9
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicar9b9:	 	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B_9
+	mov rdx,escLen
+	int 80h
+	ret	
+ubicarmedio9:
+	mov rax,4
+	mov rbx,1	
+	mov rcx,B9med
+	mov rdx,escLen
+	int 80h
+	ret	
+
 DelB1:
 	call ubicar
 	call Blanco
