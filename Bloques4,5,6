@@ -1,0 +1,128 @@
+;constantes 
+
+
+escSeqB4ar db 27,"[06;02H"
+escSeqB4me db 27, "[07,02H"
+escSeqB4ab db 27, "[08,02H"
+
+escSeqB5ar db 27, "[06,17H"
+escSeqB5me db 27, "[07,17H"
+escSeqB5ab db 27, "[08,17H"
+
+escSeqB6ar db 27, "[06,32H"
+escSeqB6me db 27, "[07,32H"
+escSeqB6ab db 27, "[08,32H"
+
+;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bloque4:
+	call ubicarb4ar  ;cambiar el nombre de linea
+	call lin
+	call ubicarb4me		;cambiar el nombre de linea
+	call Medio
+	call ubicarb4ab		;cambiar el nombre de linea
+	call lin
+	ret	
+	
+	
+ubicarb4ar:
+		
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB4ar   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicarb4me:
+		
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB4me		;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+	
+ubicarb4ab:
+		
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB4ab		;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret
+	
+;////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Bloque5:
+	call ubicarb5ar  ;cambiar el nombre de linea
+	call lin
+	call ubicarb5me		;cambiar el nombre de linea
+	call Medio
+	call ubicarb5ab		;cambiar el nombre de linea
+	call lin
+	ret	
+	
+	
+ubicarb5ar:
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB5ar   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+	
+	
+ubicarb5me: 
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB5me   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+	
+ubicarb5ab: 
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB5ab   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+
+;/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bloque6:
+	call ubicarb6ar  ;cambiar el nombre de linea
+	call lin
+	call ubicarb6me		;cambiar el nombre de linea
+	call Medio
+	call ubicarb6ab		;cambiar el nombre de linea
+	call lin
+	ret	
+	
+ubicarb6ar:
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB6ar   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+	
+	
+ubicarb6me: 
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB6me   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+	
+ubicarb6ab: 
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB6ab   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret	
+	
