@@ -97,7 +97,15 @@ _start:
 	call Bloque7
 	call Bloque8
 	call Bloque9
-	call DelB1
+	;call DelB1
+	;call DelB2
+	;call DelB3
+	call Bloque4tr
+	call Bloque5tr
+	call Bloque6tr
+	call Bloque7tr
+	call Bloque8tr
+	call Bloque9tr
 	call ubicarfinal
 	call segunda
 	
@@ -451,6 +459,7 @@ ubicarmedio9:
 	int 80h
 	ret	
 
+;Funciones de borrado
 DelB1:
 	call ubicar
 	call Blanco
@@ -468,6 +477,77 @@ DelB2:
 	call ubicar2b2
 	call Blanco
 	ret			
+
+DelB3:
+	call ubicarb3
+	call Blanco
+	call ubicarmedio3
+	call Blanco
+	call ubicar3b3
+	call Blanco
+	ret		
+Bloque4tr:			;Bloque 4 transparente o borrado
+	
+	call ubicarb4ar  ;cambiar el nombre de linea	
+	call Blanco	
+	call ubicarb4me		;cambiar el nombre de linea	
+	call Blanco	
+	call ubicarb4ab		;cambiar el nombre de linea	
+	call Blanco	
+	ret	
+	
+Bloque5tr:			;Bloque 4 transparente o borrado	
+	call ubicarb5ar  ;cambiar el nombre de linea	
+	call Blanco
+	call ubicarb5me		;cambiar el nombre de linea	
+	call Blanco	
+	call ubicarb5ab		;cambiar el nombre de linea	
+	call Blanco
+	ret	
+	
+
+Bloque6tr:			;Bloque 4 transparente o borrado	
+	call ubicarb6ar  ;cambiar el nombre de linea	
+	call Blanco	
+	call ubicarb6me		;cambiar el nombre de linea	
+	call Blanco	
+	call ubicarb6ab		;cambiar el nombre de linea	
+	call Blanco	
+	ret	
+	
+
+Bloque7tr:	
+	call ubicarb7  ;cambiar el nombre de linea
+	call Blanco
+	call ubicarmedio7		;cambiar el nombre de linea
+	call Blanco
+	call ubicar7b7		;cambiar el nombre de linea
+	call Blanco
+	ret	
+	
+	
+
+Bloque8tr:	
+	call ubicarb8  ;cambiar el nombre de linea
+	call Blanco
+	call ubicarmedio8		;cambiar el nombre de linea
+	call Blanco
+	call ubicar8b8		;cambiar el nombre de linea
+	call Blanco	
+	ret	
+	
+
+Bloque9tr:		
+	call ubicarb9  ;cambiar el nombre de linea	
+	call Blanco	
+	call ubicarmedio9		;cambiar el nombre de linea
+	call Blanco
+	call ubicar9b9		;cambiar el nombre de linea
+	call Blanco
+	ret	
+; Fin de funciones de borrado
+
+;Funciones de Impresion de caracteres
 lin:
 	mov rax,1
 	mov rdi,1
@@ -492,6 +572,9 @@ Medio:
 	syscall
 	ret
 
+; Fin de funciones de borrado 
+
+; Funciones de salida del sistema
 ubicarfinal:		
 	mov rax,4
 	mov rbx,1	
@@ -506,3 +589,5 @@ segunda:
 	mov rdi,0
 	syscall
 	ret
+
+;------------------------Fin-------------------------------------
