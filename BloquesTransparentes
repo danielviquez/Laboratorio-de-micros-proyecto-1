@@ -1,0 +1,76 @@
+
+;constantes
+
+escSeqB7artr db 27,"[06;02H"
+escSeqB7metr db 27, 
+escSeqB7abtr db 27, 
+
+escSeqB8artr db 27,"[06;02H"
+escSeqB8metr db 27, 
+escSeqB8abtr db 27, 
+
+escSeqB9artr db 27,"[06;02H"
+escSeqB9metr db 27, 
+escSeqB9abtr db 27, 
+
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bloque4tr:			;Bloque 4 transparente o borrado
+	call ubicarb4ar  ;cambiar el nombre de linea
+	call Espacio
+	call ubicarb4me		;cambiar el nombre de linea
+	call Espacio
+	call ubicarb4ab		;cambiar el nombre de linea
+	call Espacio
+	ret	
+	
+Bloque5tr:			;Bloque 4 transparente o borrado
+	call ubicarb5ar  ;cambiar el nombre de linea
+	call Espacio
+	call ubicarb5me		;cambiar el nombre de linea
+	call Espacio
+	call ubicarb5ab		;cambiar el nombre de linea
+	call Espacio
+	ret	
+	
+Bloque6tr:			;Bloque 4 transparente o borrado
+	call ubicarb6ar  ;cambiar el nombre de linea
+	call Espacio
+	call ubicarb6me		;cambiar el nombre de linea
+	call Espacio
+	call ubicarb6ab		;cambiar el nombre de linea
+	call Espacio
+	ret	
+	
+
+Bloque7tr:	
+	call ubicarb7  ;cambiar el nombre de linea
+	call Espacio
+	call ubicarmedio7		;cambiar el nombre de linea
+	call Espacio
+	call ubicar7b7		;cambiar el nombre de linea
+	call Espacio
+	ret	
+	
+	
+Bloque8tr:	
+	call ubicarb8  ;cambiar el nombre de linea
+	call Espacio
+	call ubicarmedio8		;cambiar el nombre de linea
+	call Espacio
+	call ubicar8b8		;cambiar el nombre de linea
+	call Espacio
+	ret	
+	
+Bloque9tr:	
+	call ubicarb9  ;cambiar el nombre de linea
+	call Espacio
+	call ubicarmedio9		;cambiar el nombre de linea
+	call Espacio
+	call ubicar9b9		;cambiar el nombre de linea
+	call Espacio
+	ret	
+
+	
+
+	
