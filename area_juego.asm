@@ -27,6 +27,18 @@ SECTION	.data
 	
 	;Dejar espacio para ubicaciones de bloques 4-6
 	
+	escSeqB4ar db 27,"[06;02H"
+	escSeqB4me db 27,"[07;02H"
+	escSeqB4ab db 27,"[08;02H"
+
+	escSeqB5ar db 27,"[06;17H"
+	escSeqB5me db 27,"[07;17H"
+	escSeqB5ab db 27,"[08;17H"
+
+	escSeqB6ar db 27,"[06;32H"
+	escSeqB6me db 27,"[07;32H"
+	escSeqB6ab db 27,"[08;32H"
+	
 	;Termina espacio
 	
 	B7 db 27,"[09;02H"
@@ -79,13 +91,13 @@ _start:
 	call Bloque1
 	call Bloque2
 	call Bloque3
-	;call Bloque4
-	;call Bloque5
-	;call Bloque6
+	call Bloque4
+	call Bloque5
+	call Bloque6
 	call Bloque7
 	call Bloque8
 	call Bloque9
-	;call DelB1
+	call DelB1
 	call ubicarfinal
 	call segunda
 	
@@ -165,6 +177,35 @@ Bloque3:
 	ret
 
 ; Dejar espacio para bloques 4-7
+
+Bloque4:
+	
+	call ubicarb4ar  ;cambiar el nombre de linea
+	call lin
+	call ubicarb4me		;cambiar el nombre de linea
+	call Medio
+	call ubicarb4ab		;cambiar el nombre de linea
+	call lin
+	ret	
+
+Bloque5:
+	
+	call ubicarb5ar  ;cambiar el nombre de linea	
+	call lin	
+	call ubicarb5me		;cambiar el nombre de linea	
+	call Medio	
+	call ubicarb5ab		;cambiar el nombre de linea	
+	call lin	
+	ret	
+
+Bloque6:
+	call ubicarb6ar  ;cambiar el nombre de linea	
+	call lin	
+	call ubicarb6me		;cambiar el nombre de linea	
+	call Medio	
+	call ubicarb6ab		;cambiar el nombre de linea	
+	call lin	
+	ret		
 
 ; Terminar espacio
 
@@ -264,6 +305,80 @@ ubicarmedio3:
 	ret	
 ;Dejar espacio para ubicar blques del 4-7
 
+ubicarb4ar:
+	mov rax,4	
+	mov rbx,1		
+	mov rcx,escSeqB4ar   ;declarar nueva variable	
+	mov rdx,escLen	
+	int 80h
+	ret	
+
+ubicarb4me:		
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB4me		;declarar nueva variable	
+	mov rdx,escLen
+	int 80h
+	ret	
+
+ubicarb4ab:	
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB4ab		;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret
+
+ubicarb5ar:
+	mov rax,4	
+	mov rbx,1		
+	mov rcx,escSeqB5ar   ;declarar nueva variable	
+	mov rdx,escLen	
+	int 80h
+	ret	
+		
+ubicarb5me: 
+	mov rax,4	
+	mov rbx,1		
+	mov rcx,escSeqB5me   ;declarar nueva variable	
+	mov rdx,escLen	
+	int 80h
+	ret	
+	
+ubicarb5ab: 
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB5ab   ;declarar nueva variable
+	mov rdx,escLen
+	int 80h
+	ret
+		
+ubicarb6ar:
+	mov rax,4
+	mov rbx,1		
+	mov rcx,escSeqB6ar   ;declarar nueva variable	
+	mov rdx,escLen
+	int 80h
+	ret	
+	
+	
+
+ubicarb6me: 	
+	mov rax,4	
+	mov rbx,1		
+	mov rcx,escSeqB6me   ;declarar nueva variable	
+	mov rdx,escLen	
+	int 80h
+	ret	
+	
+
+ubicarb6ab: 
+	mov rax,4
+	mov rbx,1	
+	mov rcx,escSeqB6ab   ;declarar nueva variable
+	mov rdx,escLen	
+	int 80h
+	ret	
 
 ;Terminar
 
@@ -339,7 +454,18 @@ ubicarmedio9:
 DelB1:
 	call ubicar
 	call Blanco
+	call ubicarmedio1
+	call Blanco
 	call ubicar2
+	call Blanco
+	ret			
+
+DelB2:
+	call ubicarb2
+	call Blanco
+	call ubicarmedio2
+	call Blanco
+	call ubicar2b2
 	call Blanco
 	ret			
 lin:
@@ -366,8 +492,7 @@ Medio:
 	syscall
 	ret
 
-ubicarfinal:
-		
+ubicarfinal:		
 	mov rax,4
 	mov rbx,1	
 	mov rcx,fin_pantalla
