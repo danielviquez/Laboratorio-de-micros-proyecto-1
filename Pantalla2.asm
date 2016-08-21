@@ -44,18 +44,16 @@ SECTION	.data
 	
 	escSeq db 27,"[43;02H"
 	escSeq1 db 27,"[45;02H"
-	
 	B1med db 27,"[44;02H"
 	
 	B2 db 27,"[43;17H"
 	B_2 db 27,"[45;17H"
-
 	B2med db 27,"[44;17H"
 		
 	B3 db 27,"[43;32H"
-	B_3 db 27,"[45;32H"
-	
-	B3med db 27,"[44;32H"	
+	B_3 db 27,"[45;32H"	
+	B3med db 27,"[44;32H"
+		
 	fin_pantalla db 27,"[49;00H"
 	
 	;Dejar espacio para ubicaciones de bloques 4-6
@@ -299,6 +297,7 @@ area:
 	;call Bloque8tr
 	;call Bloque9tr
 	call ubicarfinal
+	call segunda
 	;call Paredes
 	ret
 	;call segunda
